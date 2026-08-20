@@ -66,13 +66,13 @@ img { display: block; max-width: 100%; }
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.03fr) minmax(390px, 0.83fr);
-  gap: clamp(52px, 8vw, 132px);
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.62fr);
+  gap: clamp(44px, 7vw, 110px);
   align-items: center;
   width: min(100%, 1540px);
-  min-height: min(970px, 100svh);
+  min-height: min(860px, 100svh);
   margin: 0 auto;
-  padding: 118px clamp(24px, 5vw, 76px) 68px;
+  padding: 118px clamp(24px, 5vw, 76px) 58px;
 }
 .hero-copy { padding-top: 28px; }
 .eyebrow,
@@ -143,23 +143,50 @@ img { display: block; max-width: 100%; }
 }
 .hero-photo {
   position: relative;
-  width: min(100%, 535px);
-  margin: 34px 0 0 auto;
+  z-index: 0;
+  isolation: isolate;
+  width: min(100%, 380px);
+  margin: 34px auto 0;
 }
 .hero-photo::before {
   position: absolute;
-  inset: 24px -24px -24px 24px;
+  top: 45%;
+  left: 50%;
   z-index: -1;
-  border-radius: 30px;
+  width: min(112%, 425px);
+  aspect-ratio: 1;
+  border-radius: 50%;
   background: var(--purple-100);
   content: "";
+  transform: translate(-50%, -50%);
+}
+.hero-photo::after {
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  z-index: -2;
+  color: transparent;
+  content: "PORTFOLIO";
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(4.2rem, 6.8vw, 7.3rem);
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  opacity: 0.36;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  -webkit-text-stroke: 1px var(--purple-500);
 }
 .hero-photo img {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  aspect-ratio: 2 / 2.72;
-  border-radius: 30px;
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(99,54,163,.16);
+  border-radius: 28px;
+  box-shadow: 0 28px 70px rgba(75,38,122,.14);
   object-fit: cover;
-  object-position: center 38%;
+  object-position: center 36%;
 }
 .hero-photo figcaption {
   display: flex;
@@ -541,7 +568,7 @@ img { display: block; max-width: 100%; }
     padding-bottom: 90px;
   }
   .hero-copy { padding-top: 0; }
-  .hero-photo { width: min(82vw, 540px); margin: 0 auto; }
+  .hero-photo { width: min(68vw, 370px); margin: 8px auto 0; }
   .focus-strip { grid-template-columns: repeat(2, 1fr); }
   .focus-strip span:nth-child(2) { border-right: 0; }
   .focus-strip span:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.2); }
@@ -561,8 +588,8 @@ img { display: block; max-width: 100%; }
   .hero h1 { font-size: clamp(4rem, 22vw, 6rem); }
   .hero-actions { flex-wrap: wrap; }
   .hero-meta { flex-direction: column; gap: 9px; margin-top: 42px; }
-  .hero-photo { width: calc(100% - 18px); }
-  .hero-photo::before { inset: 16px -16px -16px 16px; }
+  .hero-photo { width: min(calc(100% - 70px), 330px); }
+  .hero-photo::after { top: 1%; font-size: clamp(3.2rem, 17vw, 5rem); }
   .focus-strip { grid-template-columns: 1fr; }
   .focus-strip span { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.2); }
   .focus-strip span:last-child { border-bottom: 0; }
